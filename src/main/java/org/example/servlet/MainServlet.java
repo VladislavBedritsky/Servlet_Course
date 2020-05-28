@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MainServlet extends HttpServlet {
 
@@ -17,14 +19,28 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write("Method service starts\n");
         super.service(req, resp);
-        resp.getWriter().write("Method service\n");
+        resp.getWriter().write("Method service exit\n");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
-        resp.getWriter().write("Method doGet\n");
+        String url = req.getRequestURI();
+        String params = formatParams(req);
+
+        resp.getWriter().write("Method GET\nURI: "+ url + "\nParams:\n" + params + "\n");
+    }
+
+    private String formatParams(HttpServletRequest req) {
+        return req.getParameterMap()
+                .entrySet()
+                .stream()
+                .map(entry -> {
+                    String param = String.join(" and ", entry.getValue());
+                    return entry.getKey() + " => " + param;
+                })
+                .collect(Collectors.joining("\n"));
     }
 
     @Override
@@ -32,4 +48,7 @@ public class MainServlet extends HttpServlet {
         super.destroy();
         log("Method destroy");
     }
+
+
 }
+
