@@ -51,4 +51,14 @@
         <url-pattern>/jsp-servlet/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>tag-servlet</servlet-name>
+        <servlet-class>org.example.servlet.controller.TagServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>tag-servlet</servlet-name>
+        <url-pattern>/tag-servlet/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
