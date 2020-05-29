@@ -1,4 +1,4 @@
-package org.example.servlet;
+package org.example.servlet.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;

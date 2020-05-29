@@ -1,4 +1,4 @@
-package org.example.servlet;
+package org.example.servlet.controller;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class MainServlet extends HttpServlet {
