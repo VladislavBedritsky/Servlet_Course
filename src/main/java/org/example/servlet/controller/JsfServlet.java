@@ -6,13 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class TagServlet extends HttpServlet {
+public class JsfServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String[] tagTypes = new String[] {"for", "if", "case", "import"};
+        String greeting = "Hello JSF";
 
-        req.setAttribute("urls", tagTypes);
-        getServletContext().getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
+        req.setAttribute("greeting", greeting);
+        getServletContext().getRequestDispatcher("/jsf/index.xhtml").forward(req, resp);
     }
 }

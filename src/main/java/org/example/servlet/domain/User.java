@@ -2,6 +2,7 @@ package org.example.servlet.domain;
 
 import java.util.Objects;
 
+@Named
 public class User {
 
     private String name;
